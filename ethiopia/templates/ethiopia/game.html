@@ -1,0 +1,29 @@
+<form action="{% url 'game' %}" method="POST">
+	{%csrf_token%}
+	<label>first_club</label>
+	<select name="first_club" >
+	{% for k in clubs %}
+    <option >{{k}}</option>
+    {%endfor%}
+</select>
+<br><br><br>
+	<label>last_club</label>
+	<select name="last_club" >
+	{% for k in clubs %}
+    <option >{{k}}</option>
+    {%endfor%}
+</select>
+<br><br><br>
+	<label>refree_chosen</label>
+	<select name="refree_chosen" >
+	{% for k in refrees %}
+    <option >{{k.refree_name}}</option>
+    {%endfor%}
+</select>
+<br><br><br><br>
+<label>date</label>
+	<input type="date" name="playing_date">
+<h3><input type="submit" name="submit" value="Set"></h3>
+<br><br>
+<br><br>
+</form>

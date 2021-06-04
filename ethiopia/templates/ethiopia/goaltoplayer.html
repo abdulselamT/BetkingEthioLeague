@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{page}}
+</head>
+<body>
+<form method="POST">
+	{% csrf_token %}
+	<label>{{player}} scored</label>
+	<input type="text" name="done">
+	<input type="submit" name="submit">
+</form>
+</body>
+</html>

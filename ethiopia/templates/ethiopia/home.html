@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/home.css' %}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="widht=device-width, initial-scale=1.0">
+	<title>{{ page }}</title>
+</head>
+<body>
+	<header>
+		<div class="brand">
+			<h1>News</h1>
+		</div>
+
+		<nav>
+			<ul>
+				<li><a href="/game">{{set_game}}</li>
+				<li><a href="/admin">ADMIN</li>
+				<li><a href="/discipleaned_player">score_boaredonplayer</a></li>
+				<li><a href="/comment">{{comment}}</a></li>
+				<li><a href="refree">{{fill}}</a></li>
+				<li><a href="/scoreboard">SCOREBOARED</a></li>
+				<li><h3><a href={{group}}>MINE</a></h3>
+
+				</li>
+				<li></li>
+				<li><a href="/logout">LOGOUT</a></li>
+			</ul>
+		</nav>
+
+	</header>
+
+<h3>Schedules</h3>
+<div class="players">
+<table style="width:50%;position:absolute;top:15%;background-color: blue;">
+ 
+ {% for schedule in schedules %}
+    <tr>
+   <td>{{ forloop.counter }}</td> 
+	<td>{{schedule.first_club}}</td>
+	<td>VS</td>
+	<td>{{schedule.last_club}}</td>
+	<td>{{schedule.stadium_name}}</td>
+	<td>{{schedule.playing_date}}</td>
+  {%endfor%}
+  </tr>
+  
+</table>
+</div>
+<div class="news">
+{% for new in specific %}
+  <p>{{new.date_created}}</p>
+
+  <h3>{{new}}</h3>
+  {{new.message}}
+  {{new.date}}
+  <p>the meeting date : {{new.dead_line}}</p>
+  {%endfor%}
+</div>
+<div class="news">
+{% for new in general %}
+	<p>{{new.date_created}}</p>
+	<h3>{{new}}</h3>
+	{{new.message}}
+	{{new.date}}
+	<p>The meeting Date : {{new.dead_line}}</p>
+	{%endfor%}
+</div>
+<div class="news">
+{% for new in advert %}
+	<h3>{{new.title}}</h3>
+	<br>
+	<br>
+	{{forloop.counter}} ---> {{new.comment}}
+	<br>
+	<br>
+	{{new.advert_text}}
+	{%endfor%}
+</div>
+<div class="general">
+{% for new in advert %}
+	<h3><img src="{{new.image.url}}"></h3>
+	{%endfor%}
+</div>
+<div class="public">
+{% for new in public %}
+	<br>
+	<br>
+	<br>
+	<h2>{{new.title}}</h2>
+	{{new.message}}
+	{%endfor%}
+</div>
+</body>
+</html>

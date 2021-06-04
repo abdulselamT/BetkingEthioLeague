@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+
+<body  style="background-image: url('{% static 'images/stadium.jpg' %}'); background-size: cover;font-size: 90%;
+	background-position: center;
+	font-family: sans-serif;" >
+	
+</head>
+<body>
+	<div class="register_player">
+	<form action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{% for form in forms %}
+		{{form.label}}
+		{{form}}
+		<br><br>
+		{%endfor%}
+		<label>verify</label>
+		<input type="password" name="check">
+		{{playerform.as_p}}
+		<label >club_name:</label>
+<select name="clubs" >
+	{% for k in club_list %}
+    <option >{{k}}</option>
+    {%endfor%}
+</select>
+	
+		
+	<h3><input type="submit" name="register" value="register"></h3>
+	</form>
+	
+{%for message in messages %}
+	{{message}}
+{%endfor%}
+</body>
+</div>
+</html>

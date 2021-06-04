@@ -1,0 +1,62 @@
+ <!-- Add icon library -->
+
+ <style >
+ 	
+ 	.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  background-color: red;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 30 auto;
+		border-radius: 50%;
+	}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+ </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="card">
+  
+<img class="profile-pic" src="{{request.user.supporter.propic.url}}" >
+  <p class="title"></p>
+  <p> </p>
+  <p></p>
+  <form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+        {{request.user.supporter}}
+				{{forms.as_p}}
+        developed by abduselamT
+  <p><button><input type="submit" name="update" value="Update"></button></p>
+</form>
+</div> 

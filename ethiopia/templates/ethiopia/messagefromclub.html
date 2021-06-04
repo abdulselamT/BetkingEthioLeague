@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>message to club</h1>
+<style >
+	.register{
+		position: absolute;
+		top :20%;
+		right: 40%;
+		background-color: yellow;
+	}
+	.register h3{
+		position: absolute;
+		top : 107%;
+		right: 50%;
+		background-color: blue;
+		width: 50%
+		height: 20%;
+	}
+	body {
+		background-color: red;
+	}
+
+</style>
+</head>
+<body>
+	<div class="register">
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+	<h3><input type="submit" name="register" value="register"></h3>
+	</form>
+{%for message in messages %}
+	{{message}}
+{%endfor%}
+</body>
+</div>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h3>{{page}}</h3>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+
+<body  style="background-image: url('{% static 'images/stadium.jpg' %}'); background-size: cover;font-size: 90%;
+	background-position: center;
+	font-family: sans-serif;" >
+
+<div class="login-box">
+	
+<form action="" method="POST">
+	{%csrf_token %}
+	{{forms.as_p}}
+	<input type="submit" name="submit" value="update">
+	</form>
+</div>
+</body>

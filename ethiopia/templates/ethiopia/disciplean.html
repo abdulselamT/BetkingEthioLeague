@@ -1,0 +1,45 @@
+ <style>
+
+ table{
+ 	background-color: black;
+}
+#tw{
+	background-color: blue;
+}
+
+</style>
+<table style="width:50%">
+<tr>
+	<td style="color:green">Player name</td>
+	<td style="color:white">Club name</td>
+	<td style="color:red">REDCARD</td>
+	<td style="color:yellow">Yellow_card</td>
+</tr>
+
+{% for k in b %}
+<tr>
+	<td style="color:white">{{k}}</td>
+	<td style="color:white">{{k.club_name}}</td>
+	<td style="color:red">{{k.red_card_seen}}</td>
+	<td style="color:yellow">{{k.yellow_card_seen}}</td>
+	</tr>
+{%endfor%}
+</table>
+
+<table id="tw" style="width:50% ; position: absolute;right: 0%;top: 1.2%;">
+<tr>
+	<td style="color:green">Player name</td>
+	<td style="color:white">Club name</td>
+	<td style="color:white">Goal_scored</td>
+	<td style="color:red">on_goals</td>
+</tr>
+goal scored
+{% for k in top %}
+<tr>
+	<td style="color:white">{{k}}</td>
+	<td style="color:white">{{k.club_name}}</td>
+	<td style="color:black">{{k.goal_scored}}</td>
+	<td style="color:red">tobedone</td>
+	</tr>
+{%endfor%}
+</table>

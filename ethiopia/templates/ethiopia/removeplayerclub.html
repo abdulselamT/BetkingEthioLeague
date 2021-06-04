@@ -1,0 +1,9 @@
+<p>Are you sure you want to delete "{{remoplayer.Player_name}}"?</p>
+
+			<form action="{% url 'removeplayerclub' remoplayer.id  %}" method="POST">
+				
+				{% csrf_token %}
+				<a class="btn btn-warning" href="{% url 'club' %}">Cancel</a>
+
+				<input class="btn btn-danger" type="submit" value ="Confirm">
+			</form>

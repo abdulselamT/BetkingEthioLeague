@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+
+<body  style="background-image: url('{% static 'images/stadium.jpg' %}'); background-size: cover;font-size: 90%;
+	background-position: center;
+	font-family: sans-serif;" >
+
+<div class="comment-box">
+	<h1> Give a Comment</h1>
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{forms.as_p}}
+		<select name="clubs" >
+	{% for k in club_list %}
+    <option >{{k}}</option>
+    {%endfor%}
+</select>
+	<h3><input type="submit" name="register" value="comment"></h3>
+	</form>
+{%for message in messages %}
+	{{message}}
+{%endfor%}
+</div>
+</body>
+
+</html>

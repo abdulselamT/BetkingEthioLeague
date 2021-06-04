@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+</head>
+<body  style="background-image: url('{% static 'images/groupmem.jpg' %}'); 
+	background-position: center;
+	background-size: cover;
+	font-family: sans-serif;" >
+
+<div class ="login-box"> 
+	<img src="{% static 'images/football.png' %}" class="avatar">
+<form action="" method="POST">
+	{% csrf_token %}
+	<h1>Login Here</h1>
+	<p>Username</p>
+	<input type="text" name="user_name" required="" placeholder="Enter username" ><br><br>
+	<p>password</p>
+	<input type="password" name="password" required="" placeholder="Enter password"><br><br>
+	<input type="submit" name="" value="Login">
+</form>
+<a href="/reset_password">forgot password?</a><br>
+{% for message in messages %}
+	{{message}}
+{%endfor%}
+
+
+<a href="/registerplayer">Register as player</a><br>
+<a href="/registerclub">Register club</a><br>
+<a href="/registerrefree">Register as refree</a><br>
+<a href="/registersupporter">Register as supporter</a>
+
+
+</div>
+
+	</body>
+</html>

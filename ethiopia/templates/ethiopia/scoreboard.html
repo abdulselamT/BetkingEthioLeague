@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h3>{{page}}</h3>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/scoreboard.css' %}">
+</head>
+<body>
+
+<div class="score">
+ <table style="width:50%">
+  <tr>
+  	<th>Rank</th>
+    <th>Clubname</th>
+    <th>RESULT</th>
+    <th>total_goals</th>
+    <th>total_wins</th>
+    <th>lost</th>
+    <th>&nbsp &nbsp &nbsp &nbsp total_tie</th>
+  </tr>
+  
+   {% for k in table %}
+    <tr>
+   <td>{{forloop.counter }}</td> 
+	<td><img class="logo" src="{{k.logo.url}}"> &nbsp &nbsp {{k.club_name}}</td>
+	<td>{{k.result}}</td>
+  <td>{{k.total_goals}}</td>
+  <td>{{k.total_wins}}</td>
+	<td>{{k.total_maches}}</td>
+  <td>{{k.total_lose}}</td>
+	<td>{{k.total_tie}}</td>
+
+  {%endfor%}
+  </tr>
+  
+</table>
+</div>
+</body>
+<div class = "back">
+  <a href="/">back</a>
+</div>
+</html>

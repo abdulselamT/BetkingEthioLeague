@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<h1>{{page}}</h1>
+	<style>
+ 	.fill{
+ 		position: absolute;
+ 		
+ 		background-color: orange;
+
+ 	}
+ 	.fill h3{
+		position: absolute;
+		
+		right: 50%;
+		background-color: blue;
+		width: 50%
+		height: 20%;
+	}
+ 	
+ </style>
+</head>
+<body>
+<div class="fill">
+<form action="{% url 'refree' %}" method="POST">
+	{%csrf_token%}
+	<label>goals of {{form.first_club}}</label>
+	<input type="text" name="first_club_goal"><br><br>
+	<label>goals of {{form.last_club}}</label>
+	<input type="text" name="last_club_goal">
+	
+<h3><input type="submit" name="submit" value="fill"></h3>
+<br><br>
+<br><br>
+</form>
+
+</body>
+<form method="get">
+	{{myFilter.form}}
+	<button>Search</button>
+</form>
+<a href="/refree/goaltoplayer">player goals</a>
+
+<table style="width:10%">
+{% for k in players %}
+<tr>
+	<td>{{k.Player_name}}</td>
+	<td>{{k.malia_number}}</td>
+	<td><a href="{% url 'goaltoplayer' k.id %}">ADDGOAL</a></td>
+{% endfor %}
+</tr>
+</html>
